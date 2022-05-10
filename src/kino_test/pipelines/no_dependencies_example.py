@@ -1,5 +1,5 @@
 """
-Implements the example problem from Shmoys Lewis as a pipeline.
+Implements the example problem with no dependencies.
 """
 
 import logging
@@ -18,43 +18,37 @@ def create_pipeline() -> Pipeline:
                 partial_wrapper(sleepy_node, 3),
                 None,
                 "output_1",
-                name="job_1",
+                name="e_1",
             ),
             node(
-                partial_wrapper(sleepy_node, 1),
+                partial_wrapper(sleepy_node, 5),
                 None,
                 "output_2",
-                name="job_2",
+                name="e_2",
             ),
             node(
-                partial_wrapper(sleepy_node, 1),
+                partial_wrapper(sleepy_node, 3),
                 None,
                 "output_3",
-                name="job_3",
+                name="e_3",
             ),
             node(
-                partial_wrapper(sleepy_node, 1),
-                ["output_1", "output_3"],
+                partial_wrapper(sleepy_node, 6),
+                None,
                 "output_4",
-                name="job_4",
+                name="e_4",
             ),
             node(
-                partial_wrapper(sleepy_node, 5),
-                ["output_1", "output_2"],
+                partial_wrapper(sleepy_node, 4),
+                None,
                 "output_5",
-                name="job_5",
-            ),
-            node(
-                partial_wrapper(sleepy_node, 5),
-                "output_4",
-                "output_6",
-                name="job_6",
+                name="e_5",
             ),
             node(
                 partial_wrapper(sleepy_node, 5),
                 None,
-                "output_7",
-                name="job_7",
+                "output_6",
+                name="e_6",
             ),
         ]
     )
