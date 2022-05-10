@@ -28,3 +28,19 @@ class PipelineTimingHooks:
         """
         runtime = time.time() - self.start
         logger.log(logging.INFO, f"Pipeline runtime: {runtime:0.2f} seconds")
+
+
+class NodeTimingHooks:
+    @hook_impl
+    def before_node_run(self, node, session_id):
+        row = f"{node.name},{session_id},{time.time()},start\n"
+
+        with open("./start_times.csv", "a") as fptr:
+            fptr.write(row)
+
+    @hook_impl
+    def after_node_run(self, node, session_id):
+        row = f"{node.name},{session_id},{time.time()},end\n"
+
+        with open("./end_times.csv", "a") as fptr:
+            fptr.write(row)
