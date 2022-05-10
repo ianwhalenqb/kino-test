@@ -33,14 +33,14 @@ class PipelineTimingHooks:
 class NodeTimingHooks:
     @hook_impl
     def before_node_run(self, node, session_id):
-        row = f"{node.name},{session_id},{time.time()},start\n"
+        row = f"{node.name},{session_id},{time.time()}\n"
 
         with open("./start_times.csv", "a") as fptr:
             fptr.write(row)
 
     @hook_impl
     def after_node_run(self, node, session_id):
-        row = f"{node.name},{session_id},{time.time()},end\n"
+        row = f"{node.name},{session_id},{time.time()}\n"
 
         with open("./end_times.csv", "a") as fptr:
             fptr.write(row)
