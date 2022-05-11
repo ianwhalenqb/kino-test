@@ -1,9 +1,13 @@
 """Project pipelines."""
 from typing import Dict
 
-from kedro.pipeline import Pipeline, pipeline
+from kedro.pipeline import Pipeline
 
-from kino_test.pipelines import shmoys_lewis_example, no_dependencies_example
+from kino_test.pipelines import (
+    shmoys_lewis_example,
+    no_dependencies_example,
+    new_toy_example,
+)
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
@@ -16,4 +20,5 @@ def register_pipelines() -> Dict[str, Pipeline]:
     return {
         "__default__": shmoys_lewis_example.create_pipeline(),
         "no_deps": no_dependencies_example.create_pipeline(),
+        "new_toy": new_toy_example.create_pipeline(),
     }
