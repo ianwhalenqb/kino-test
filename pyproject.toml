@@ -1,7 +1,7 @@
 [tool.kedro]
 package_name = "kino_test"
 project_name = "kino-test"
-project_version = "0.18.0"
+project_version = "9001.0.0"
 
 [tool.isort]
 multi_line_output = 3

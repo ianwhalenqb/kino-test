@@ -18,7 +18,7 @@ def register_pipelines() -> Dict[str, Pipeline]:
     """
 
     return {
-        "__default__": shmoys_lewis_example.create_pipeline(),
-        "no_deps": no_dependencies_example.create_pipeline(),
-        "new_toy": new_toy_example.create_pipeline(),
+        "__default__": shmoys_lewis_example.create_pipeline(),  # run with 3 jobs
+        "no_deps": no_dependencies_example.create_pipeline(),  # run with 2 jobs
+        "new_toy": new_toy_example.create_pipeline(),  # run with 3 jobs
     }
